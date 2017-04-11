@@ -23,6 +23,7 @@ public class PrincipalFrame extends JFrame {
     Integer solucion = 0;
     private final JPanel pnlArriba;
     private final JLabel lblResultado;
+    private final JButton btnCerrar;
 
     public PrincipalFrame(Integer tamanoMatriz) {
         super.setSize(400, 400);
@@ -62,10 +63,17 @@ public class PrincipalFrame extends JFrame {
                 lblResultado.setText("El resultado es: " + solucion);
             }
         });
+        
+        btnCerrar = new JButton("Cerrar");
+        btnCerrar.addActionListener((ActionEvent ae) -> {
+            System.exit(0);
+        });
 
         pnlBoton.add(btnCalcular);
+        pnlBoton.add(btnCerrar);
 
         pnlArriba = new JPanel();
+        pnlArriba.setBackground(Color.WHITE);
         lblResultado = new JLabel();
         pnlArriba.add(lblResultado);
 

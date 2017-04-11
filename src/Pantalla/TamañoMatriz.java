@@ -1,4 +1,3 @@
-
 package Pantalla;
 
 import java.awt.BorderLayout;
@@ -12,13 +11,13 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class TamañoMatriz extends JFrame{
-
+public class TamañoMatriz extends JFrame {
+    
     private final JPanel pnlUnico;
     private final JLabel lblPregunta;
     private final JTextField txtRespuesta;
     private final JButton btnAceptar;
-
+    
     public TamañoMatriz() {
         super.setSize(400, 80);
         super.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -26,20 +25,18 @@ public class TamañoMatriz extends JFrame{
         super.getContentPane().setBackground(Color.WHITE);
         super.setLocationRelativeTo(null);
         super.setLayout(new BorderLayout());
-        
+
         //********************
         pnlUnico = new JPanel();
         //pnlUnico.setLayout(new BorderLayout());
         lblPregunta = new JLabel("¿De cuanto sera tu determinante?");
         txtRespuesta = new JTextField(7);
         btnAceptar = new JButton("Aceptar");
-        btnAceptar.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                PrincipalFrame pf = new PrincipalFrame(Integer.valueOf(txtRespuesta.getText()));
-            }
+        btnAceptar.addActionListener((ActionEvent ae) -> {
+            PrincipalFrame pf = new PrincipalFrame(Integer.valueOf(txtRespuesta.getText()));
+            super.setVisible(false);
         });
-
+        
         pnlUnico.add(lblPregunta);
         pnlUnico.add(txtRespuesta);
         pnlUnico.add(btnAceptar);
